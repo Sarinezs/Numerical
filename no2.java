@@ -1,3 +1,4 @@
+// bisection method
 public class no2{
     public static void main(String[] args){
         double xl = 1.5;
@@ -15,7 +16,7 @@ public class no2{
             if(ym * yr < 0){
                 xl = xm;
             }
-            if(ym * yr > 0){
+            else if(ym * yr > 0){
                 xr = xm;
             }
         }

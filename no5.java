@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+// bisection method
 public class no5{
     public static void main(String[] args){
         double xl,xr,xm,yl,yr,ym,a,n;
@@ -20,7 +20,7 @@ public class no5{
                 xl = xm;
             }
             
-            if(ym*yr > 0){
+            else if(ym*yr > 0){
                 xr = xm;
             }
 

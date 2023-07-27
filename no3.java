@@ -1,3 +1,4 @@
+// bisection method
 public class no3{
     public static void main(String[] args){
         double xl,xr,xm,yl,yr,ym;
@@ -14,7 +15,7 @@ public class no3{
                 xl = xm;
             }
             
-            if(ym * yr > 0){
+            else if(ym * yr > 0){
                 xr = xm;
             }
         } while (Math.abs(ym) >= 0.000001);

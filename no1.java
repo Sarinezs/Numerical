@@ -1,5 +1,4 @@
-// package Numerical;
-
+// Graphical method
 public class no1 {
     public static void main(String[] args){
         double x = 0;
