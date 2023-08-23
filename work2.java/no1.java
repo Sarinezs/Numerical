@@ -3,8 +3,8 @@
 public class no1 {
     public static void main(String[] args){
         double xl,xr,x1,yl,yr,y1;
-        xl = 0;
-        xr = 10;
+        xl = 1.5;
+        xr = 2.0;
         do {
             yl = Math.pow(xl,4) - 13;
             yr = Math.pow(xr,4) - 13;
