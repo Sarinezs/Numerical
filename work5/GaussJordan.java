@@ -1,37 +1,36 @@
 import java.util.Scanner;
 
-public class gaussian{
+public class GaussJordan{
 
     public void echelonform(double[][] a, double[] b){
         int n = b.length;
-        double[][] f = new double[n][n];
-        double[] m =new double[n];
 
         for(int k = 0;k < n; k++){
-            int max = k;
-            // for(int i = k + 1; i<n; i++){
-            //     if(Math.abs(a[i][k]) > Math.abs(a[k][k])){ // for นี้เอาไว้checkแถวที่ต้องสลับแถวถ้าตัวล่าง มากกว่า ตัวบน
-            //         max = i;                               // ครั้งแรกจะเริ่มที่คอลัมภ์แรก
-            //     }
-            // }
-
-            // double[] temp = a[k]; //{
-            // a[k] = a[max];        //       <--- สลับแถว A 
-            // a[max] = temp;        //        
-            //                             // aคือก้อนใหญ่ b คือก้อนคำตอบ
-            // double t = b[k];      //
-            // b[k] = b[max];        //       <--- สลับแถว B
-            // b[max] = t;           //        
-                                  //}
             // loop คำนวณให้เป็น form ตามแบบ echelonform
             for(int i = k+1; i<n; i++){
-                double factor = a[i][k] / a[k][k]; //เอาตัวล่างส่วนตัวบน ลองเขียนดู
-                b[i] -= factor*b[k];
-                for(int j =0; j<n; j++){
-                    a[i][j] -= factor*a[k][j];
+                double factor = a[i][k] / a[k][k]; //เอาตัวล่างส่วนตัวบน
+                b[i] = b[i] - factor *b[k];
+                for(int j = k; j<n; j++){
+                    a[i][j] = a[i][j] - factor * a[k][j];
                 }
             }
         }
+        // gaussjordan's form
+        for(int i = 2; i >= 0; i--){
+            for(int j = i-1; j>= 0; j--){
+                double factor =  a[j][i] / a[i][i];
+                b[j] = b[j] - factor*b[i];
+                for(int k = 0; k < n; k++){
+                    a[j][k] = a[j][k] - factor*a[i][k];
+                }
+            }
+            
+        }
+        for(int j = 2; j >= 0; j--){
+                b[j] = b[j] / a[j][j];
+                a[j][j] = a[j][j] / a[j][j];
+            }
+
     }
 
     // อันนี้แค่ปริ้นเฉยๆ ไม่มีอะไร
@@ -62,7 +61,7 @@ public class gaussian{
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        gaussian ge = new gaussian();
+        GaussJordan ge = new GaussJordan();
         double[][] a = {{-2,3,1},{3,4,-5},{1,-2,1}};
         double[] b = {9,0,-4};
 
