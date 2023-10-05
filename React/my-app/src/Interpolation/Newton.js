@@ -19,7 +19,7 @@ class Newton extends Component{
         super();
     }
 
-    Cal_Polynomial_interpolate(){
+    Cal_interpolate(){
         var x =[0,20000,40000,60000,80000];
         var y = [9.8100,9.7487,9.6879,9.6879,9.5682] ;
         var arr_c = [];
@@ -108,7 +108,7 @@ class Newton extends Component{
                             </div>
                             <br>
                             </br>
-                            <Button onClick={this.Cal_Polynomial_interpolate}  style={{width:"10%",margin:"0 auto"}} >
+                            <Button onClick={this.Cal_interpolate}  style={{width:"10%",margin:"0 auto"}} >
                                     Calculate
                             </Button>
                     
