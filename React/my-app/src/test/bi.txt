@@ -1,0 +1,81 @@
+import {React,Component} from "react";
+import { Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+
+const mainDiv = {
+    display:"flex",
+    width:"100%",
+    margin:"0 auto"
+}
+
+const Div = {
+    width:"100%",
+    margin:"0 auto"
+}
+
+class Newton_Interpolation extends Component{
+    constructor(start, end){
+        super();
+        this.x = [0,20000,40000,60000,80000] ;
+        this.y = [9.8100,9.7487,9.6879,9.6879,9.5682] ;
+        this.arr_c = [];
+        this.save_c(start, end);
+        this.xvalue = 42235;
+        this.solution = 0;
+        this.term = 1;
+        this.Cal_interpolate();
+    }
+
+    interpolate(start, end){
+        if((end - start) == 1){
+            return (this.y[end] - this.y[start]) / (this.x[end] - this.x[start]);
+        }
+        else if(end == start){
+            return this.y[end];
+        }
+        else{
+            return (this.interpolate(start+1, end) - this.interpolate(start, end-1)) / (this.x[end] - this.x[start]);
+        }
+    }
+
+    save_c(start, end){
+        for(let i = start; i<=end; i++){
+            this.arr_c[i] = this.interpolate(start, i);
+        }
+    }
+
+    Cal_interpolate(){
+        for(let i = 0; i<this.arr_c.length; i++){
+            if(i == 0){
+                this.solution += this.arr_c[i];
+            }
+            else{
+                this.term *= (this.xvalue - this.x[i-1]);
+                this.solution += this.arr_c[i]*this.term;
+            }
+        }
+    }
+
+    render(){
+        return(
+            <div>
+                suriya meru
+               <div style={mainDiv}>
+                   <div  style={Div} >
+                        <h1> Newton Interpolation </h1>
+                        <br></br> 
+                        <div>
+                                
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        );
+    }
+
+}
+
+export default Newton_Interpolation;
