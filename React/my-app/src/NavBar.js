@@ -23,7 +23,6 @@ export const NavBar = () =>{
                         title="interpolation"
                         id={`offcanvasNavbarDropdown-expand-${expand}`}>
                         <NavDropdown.Item href="/Newton">Newton</NavDropdown.Item><NavDropdown.Divider />
-                        <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item><NavDropdown.Divider />
                       </NavDropdown>
 
                     </Nav>

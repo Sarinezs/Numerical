@@ -17,40 +17,18 @@ const Div = {
 class Newton extends Component{
     constructor(){
         super();
-        // this.x = [0,20000,40000,60000,80000] ;
-        // this.y = [9.8100,9.7487,9.6879,9.6879,9.5682] ;
-        // this.arr_c = [];
-        // this.save_c(start, end);
-        // this.xvalue = 42235;
-        // this.solution = 0;
-        // this.term = 1;
-        // this.Cal_interpolate();
     }
 
-    // interpolate(start, end){
-    //     if((end - start) == 1){
-    //         return (this.y[end] - this.y[start]) / (this.x[end] - this.x[start]);
-    //     }
-    //     else if(end == start){
-    //         return this.y[end];
-    //     }
-    //     else{
-    //         return (this.interpolate(start+1, end) - this.interpolate(start, end-1)) / (this.x[end] - this.x[start]);
-    //     }
-    // }
-
-    // save_c(start, end){
-    //     for(let i = start; i<=end; i++){
-    //         this.arr_c[i] = this.interpolate(start, i);
-    //     }
-    // }
-
-    Cal_interpolate(){
+    Cal_Polynomial_interpolate(){
         var x =[0,20000,40000,60000,80000];
         var y = [9.8100,9.7487,9.6879,9.6879,9.5682] ;
         var arr_c = [];
+        var arr_c1 = [];
+        var arr_c2 = [];
         const xvalue = 42235;
         var solution = 0;
+        var Linear_ans;
+        var Quadratic_ans;
         var term = 1;
         var start = document.getElementById("Inputstart").value;
         var end = document.getElementById("Inputend").value;
@@ -60,7 +38,26 @@ class Newton extends Component{
 
         var sum = s + e;
 
+        // part Linear
+        const Linear_cal = (start,end) =>{
+            arr_c[0] = y[0];
+            arr_c[1] = (y[4] - y[0]) / (x[4] - x[0]);
+        };
+        Linear_cal(s,e);
+        Linear_ans = arr_c[0] + arr_c[1]*(42235 - x[0]);
+        document.getElementById("Linear").innerHTML=Linear_ans;
 
+        // part Quadratic
+        const Quadratic_cal = (start,end) =>{
+            arr_c1[0] = y[0];
+            arr_c1[1] = (y[2] - y[0]) / (x[2] - x[0]);
+            arr_c1[2] = ((y[2] - y[0]) / (x[2] - x[0]) - arr_c[1]) / (x[4] - x[0]);
+        };
+        Quadratic_cal(s,e);
+        Quadratic_ans = arr_c1[0] + arr_c1[1]*(42235 - x[0]) + arr_c1[2]*(42235 - x[0])*(42235 - x[2]);
+        document.getElementById("Quadratic").innerHTML=Quadratic_ans;
+
+        // part Polynomial
         const interpolate = (start, end) =>{
             if((end - start) == 1){
                 return (y[end] - y[start]) / (x[end] - x[start]);
@@ -75,30 +72,24 @@ class Newton extends Component{
 
         
         const save_c = (start,end) =>{
-            
-
             for(let i = start; i<=end; i++){
-                arr_c[i] = interpolate(start, i);
+                arr_c2[i] = interpolate(start, i);
             }
         };
         
         save_c(s,e);
-
-        document.getElementById("ShowM").innerHTML=start;
-        document.getElementById("ShowC").innerHTML=end;
        
-
-        for(let i = 0; i<arr_c.length; i++){
+        for(let i = 0; i<arr_c2.length; i++){
             if(i == 0){
-                solution += arr_c[i];
+                solution += arr_c2[i];
             }
             else{
                 term *= (xvalue - x[i-1]);
-                solution += arr_c[i]*term;
+                solution += arr_c2[i]*term;
             }
         }
 
-        document.getElementById("Showm").innerHTML=solution;
+        document.getElementById("Polynomial").innerHTML=solution;
 
     }
 
@@ -117,28 +108,22 @@ class Newton extends Component{
                             </div>
                             <br>
                             </br>
-
-                            <Button onClick={this.Cal_interpolate}  style={{width:"10%",margin:"0 auto"}} >
-                                    Enter
+                            <Button onClick={this.Cal_Polynomial_interpolate}  style={{width:"10%",margin:"0 auto"}} >
+                                    Calculate
                             </Button>
                     
                             <br></br><br></br><br></br>
-                            <div style={{width:"40%",height:"5%",margin:"0 auto",background:'#F0FFF0'}}>
-                            <h>ANS = </h>
-                            <h style={{color:'green'}} id="Showm">  </h>
 
-                            <br></br><br></br><br></br>
-                            <div style={{width:"40%",margin:"0 auto",background:'#FFFFE0',textAlign:"center"}}>
-                                <h4>check value </h4>
-                                <div style={{width:"40%",margin:"0 auto",textAlign:"left"}}>
-                                    <h>start = </h>
-                                    <h id="ShowM"></h><br></br>
-                                    <h>end = </h>
-                                    <h id="ShowC"></h>
-                                </div>
+                            <div style={{width:"40%",height:"22%",margin:"0 auto",background:'#F0FFF0'}}>
+                                <h>Linear = </h>
+                                <h style={{color:'green'}} id="Linear">  </h>
+                                <br/>
+                                <h>Quadratic = </h>
+                                <h style={{color:'green'}} id="Quadratic">  </h>
+                                <br/>
+                                <h>Polynomial = </h>
+                                <h style={{color:'green'}} id="Polynomial">  </h>
                             </div>
-
-                        </div>
                         
 
                     </div>
