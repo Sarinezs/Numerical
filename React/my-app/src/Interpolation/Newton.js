@@ -1,4 +1,4 @@
-import {React,Component,useState} from "react";
+import {React,Component} from "react";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
@@ -15,9 +15,6 @@ const Div = {
 }
 
 class Newton extends Component{
-    constructor(){
-        super();
-    }
 
     Cal_interpolate(){
         var x =[0,20000,40000,60000,80000];
@@ -36,7 +33,6 @@ class Newton extends Component{
         var s = Number(start);
         var e = Number(end);
 
-        var sum = s + e;
 
         // part Linear
         const Linear_cal = (start,end) =>{
@@ -59,10 +55,10 @@ class Newton extends Component{
 
         // part Polynomial
         const interpolate = (start, end) =>{
-            if((end - start) == 1){
+            if((end - start) === 1){
                 return (y[end] - y[start]) / (x[end] - x[start]);
             }
-            else if(end == start){
+            else if(end === start){
                 return y[end];
             }
             else{
@@ -80,7 +76,7 @@ class Newton extends Component{
         save_c(s,e);
        
         for(let i = 0; i<arr_c2.length; i++){
-            if(i == 0){
+            if(i === 0){
                 solution += arr_c2[i];
             }
             else{
