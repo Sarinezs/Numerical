@@ -33,60 +33,60 @@ class Newton extends Component{
         var s = Number(start);
         var e = Number(end);
 
+        if(e !== 0 || s !== 0){
+            // part Linear
+            const Linear_cal = () =>{
+                arr_c[0] = y[0];
+                arr_c[1] = (y[4] - y[0]) / (x[4] - x[0]);
+            };
+            Linear_cal(s,e);
+            Linear_ans = arr_c[0] + arr_c[1]*(42235 - x[0]);
+            document.getElementById("Linear").innerHTML=Linear_ans;
 
-        // part Linear
-        const Linear_cal = (start,end) =>{
-            arr_c[0] = y[0];
-            arr_c[1] = (y[4] - y[0]) / (x[4] - x[0]);
-        };
-        Linear_cal(s,e);
-        Linear_ans = arr_c[0] + arr_c[1]*(42235 - x[0]);
-        document.getElementById("Linear").innerHTML=Linear_ans;
+            // part Quadratic
+            const Quadratic_cal = () =>{
+                arr_c1[0] = y[0];
+                arr_c1[1] = (y[2] - y[0]) / (x[2] - x[0]);
+                arr_c1[2] = ((y[2] - y[0]) / (x[2] - x[0]) - arr_c[1]) / (x[4] - x[0]);
+            };
+            Quadratic_cal(s,e);
+            Quadratic_ans = arr_c1[0] + arr_c1[1]*(42235 - x[0]) + arr_c1[2]*(42235 - x[0])*(42235 - x[2]);
+            document.getElementById("Quadratic").innerHTML=Quadratic_ans;
 
-        // part Quadratic
-        const Quadratic_cal = (start,end) =>{
-            arr_c1[0] = y[0];
-            arr_c1[1] = (y[2] - y[0]) / (x[2] - x[0]);
-            arr_c1[2] = ((y[2] - y[0]) / (x[2] - x[0]) - arr_c[1]) / (x[4] - x[0]);
-        };
-        Quadratic_cal(s,e);
-        Quadratic_ans = arr_c1[0] + arr_c1[1]*(42235 - x[0]) + arr_c1[2]*(42235 - x[0])*(42235 - x[2]);
-        document.getElementById("Quadratic").innerHTML=Quadratic_ans;
-
-        // part Polynomial
-        const interpolate = (start, end) =>{
-            if((end - start) === 1){
-                return (y[end] - y[start]) / (x[end] - x[start]);
+            // part Polynomial
+            const interpolate = (start, end) =>{
+                if((end - start) === 1){
+                    return (y[end] - y[start]) / (x[end] - x[start]);
+                }
+                else if(end === start){
+                    return y[end];
+                }
+                else{
+                    return (interpolate(start+1, end) - interpolate(start, end-1)) / (x[end] - x[start]);
+                }
             }
-            else if(end === start){
-                return y[end];
-            }
-            else{
-                return (interpolate(start+1, end) - interpolate(start, end-1)) / (x[end] - x[start]);
-            }
-        }
 
+
+            const save_c = (start,end) =>{
+                for(let i = start; i<=end; i++){
+                    arr_c2[i] = interpolate(start, i);
+                }
+            };
+
+            save_c(s,e);
         
-        const save_c = (start,end) =>{
-            for(let i = start; i<=end; i++){
-                arr_c2[i] = interpolate(start, i);
+            for(let i = 0; i<arr_c2.length; i++){
+                if(i === 0){
+                    solution += arr_c2[i];
+                }
+                else{
+                    term *= (xvalue - x[i-1]);
+                    solution += arr_c2[i]*term;
+                }
             }
-        };
-        
-        save_c(s,e);
-       
-        for(let i = 0; i<arr_c2.length; i++){
-            if(i === 0){
-                solution += arr_c2[i];
-            }
-            else{
-                term *= (xvalue - x[i-1]);
-                solution += arr_c2[i]*term;
-            }
+
+            document.getElementById("Polynomial").innerHTML=solution;
         }
-
-        document.getElementById("Polynomial").innerHTML=solution;
-
     }
 
     render(){
