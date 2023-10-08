@@ -1,11 +1,8 @@
 public class Multiple_Linear_Regression {
     public static void main(String[] args){
-        // int[] x1 = {1,0,2,3,4,2,1};
-        // int[] x2 = {0,1,4,2,1,3,6};
-        // int[] x3 = {1,3,1,2,5,3,4};
-        double[][] x = {{1,0,2,3,4,2,1}, // x1
-                    {0,1,4,2,1,3,6},  // x2
-                    {1,3,1,2,5,3,4}}; // x3
+        double[][] x = {{1,0,2,3,4,2,1},  // x1
+                        {0,1,4,2,1,3,6},  // x2
+                        {1,3,1,2,5,3,4}}; // x3
         double[] y = {4,-5,-6,0,-1,-7,-20};
         int[] xvalue = {1,2,3};
         int m = 4;
@@ -42,7 +39,6 @@ public class Multiple_Linear_Regression {
             }
             solution[i] = (b[i] - sum) /a[i][i];    // ตรงนี้จะเป็นคำตอบที่คำนวณได้ x1,x2,x3นั้นแหละ
         }
-
         return solution;
     }
 
