@@ -31,7 +31,9 @@ export const NavBar = () =>{
                       <NavDropdown
                         title="Solutions Root of equation"
                         id={`offcanvasNavbarDropdown-expand-${expand}`}>
-                        <NavDropdown.Item href="/Gauss_elimination">Gauss_elimination</NavDropdown.Item><NavDropdown.Divider />
+                        <NavDropdown.Item href="/Gauss_elimination">Gauss_elimination</NavDropdown.Item>
+                        <br/>
+                        <NavDropdown.Item href="/Gauss_Jordan">Gauss_Jordan</NavDropdown.Item><NavDropdown.Divider />
                         <br/>
                       </NavDropdown>
 

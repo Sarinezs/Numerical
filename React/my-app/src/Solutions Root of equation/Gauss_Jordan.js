@@ -1,19 +1,18 @@
-import {React,Component} from "react";
-import {Button} from "react-bootstrap";
-import {Form} from "react-bootstrap";
+import {React, Component} from 'react';
+import {Button, Form} from 'react-bootstrap';
 
 const mainDiv = {
     display: "flex",
-    width:"100%",
-    margin:"0 auto"
+    width: "100%",
+    margin: "0 auto"
 }
 
 const Div = {
-    width:"100%",
-    margin:"0 auto"
+    width: "100%",
+    margin: "0 auto"
 }
 
-class Gauss_elimination extends Component{
+class Gauss_Jordan extends Component{
 
     create_matrix_input(){
         var size = document.getElementById("size_of_matrix").value;
@@ -28,7 +27,7 @@ class Gauss_elimination extends Component{
         document.getElementById("matrix_table").innerHTML=m_input;
     }
 
-    Cal_Gauss = () =>{
+    Cal_Gauss_jordan = () =>{
         var size = document.getElementById("size_of_matrix").value;
         var a = [];
         var b = [];
@@ -46,6 +45,9 @@ class Gauss_elimination extends Component{
 
 
         var echelonform = () =>{
+            var size = document.getElementById("size_of_matrix").value;
+
+            // gauss eliminate
             for(var k = 0; k<size; k++){
                 for(var i = k+1; i<size; i++){
                     var factor = a[i][k] / a[k][k];
@@ -53,8 +55,20 @@ class Gauss_elimination extends Component{
                     for(var j = k; j<size; j++){
                         a[i][j] -= (factor * a[k][j]).toFixed(2);
                     }
-                    printform();
                 }
+            }
+
+            // gauss jordan
+            for(var i = size-1; i>= 0; i--){
+                for(let j = i-1; j>=0; j--){
+                    var factor = a[j][i] / a[i][i];
+                    b[j] -= (factor*b[i]).toFixed(2);
+                    for(var k = 0; k<size; k++){
+                        a[j][k] -= (factor*a[i][k]).toFixed(2);
+                    }
+                }
+                b[i] = (b[i] / a[i][i]).toFixed(2);
+                a[i][i] = (a[i][i] / a[i][i]).toFixed(2);
             }
 
             for(var i = size-1; i>=0; i--){
@@ -64,6 +78,7 @@ class Gauss_elimination extends Component{
                 }
                 solution[i] = ((b[i] - sum) / a[i][i]).toFixed(2);
             }
+            printform();
         }
 
         var printform = () =>{
@@ -108,7 +123,7 @@ class Gauss_elimination extends Component{
             <div>
                 <div style={mainDiv}>
                     <div style={Div}>
-                        <h1>Gauss_elimination</h1>
+                        <h1>Gauss_Jordan</h1>
                         <br/>
                         <div>
                             <Form.Control id="size_of_matrix" placeholder="enter matrix size" type="number" step="1"></Form.Control>
@@ -125,7 +140,7 @@ class Gauss_elimination extends Component{
                         </div>
                         <br/>
 
-                        <Button onClick={this.Cal_Gauss}>
+                        <Button onClick={this.Cal_Gauss_jordan}>
                             submit
                         </Button>
                     
@@ -145,4 +160,4 @@ class Gauss_elimination extends Component{
     }
 }
 
-export default Gauss_elimination;
+export default Gauss_Jordan;

@@ -16,7 +16,7 @@ public class GaussJordan{
             }
         }
         // gaussjordan's form
-        for(int i = 2; i >= 0; i--){
+        for(int i = n-1; i >= 0; i--){
             for(int j = i-1; j>= 0; j--){
                 double factor =  a[j][i] / a[i][i];
                 b[j] = b[j] - factor*b[i];
@@ -24,13 +24,9 @@ public class GaussJordan{
                     a[j][k] = a[j][k] - factor*a[i][k];
                 }
             }
-            
+            b[i] = b[i] / a[i][i];
+            a[i][i] = a[i][i] / a[i][i];
         }
-        for(int j = 2; j >= 0; j--){
-                b[j] = b[j] / a[j][j];
-                a[j][j] = a[j][j] / a[j][j];
-            }
-
     }
 
     // อันนี้แค่ปริ้นเฉยๆ ไม่มีอะไร
