@@ -14,7 +14,7 @@ const Div = {
 
 class Gauss_Jordan extends Component{
 
-    create_matrix_input(){
+    create_matrix_input(){ // สร้างตาราง matrix
         var size = document.getElementById("size_of_matrix").value;
         var m_input = "";
 
@@ -33,7 +33,7 @@ class Gauss_Jordan extends Component{
         var b = [];
         var solution = [];
 
-        for(let i = 0; i<size; i++){
+        for(let i = 0; i<size; i++){ // เก็บarray
             a.push([]);
             for(let j = 0; j<size; j++){
                 a[i].push(document.getElementById("input"+i+j).value);
@@ -42,9 +42,7 @@ class Gauss_Jordan extends Component{
             b[i].push(document.getElementById("inputans"+i+0).value);    
         }
 
-
-
-        var echelonform = () =>{
+        var echelonform = () =>{ // จัดรูปตาม Gauss
             var size = document.getElementById("size_of_matrix").value;
 
             // gauss eliminate
@@ -71,6 +69,7 @@ class Gauss_Jordan extends Component{
                 a[i][i] = (a[i][i] / a[i][i]).toFixed(2);
             }
 
+            // หาคำตอบ
             for(var i = size-1; i>=0; i--){
                 var sum = 0;
                 for(var j = i+1; j<size; j++){
@@ -85,7 +84,7 @@ class Gauss_Jordan extends Component{
             var size = document.getElementById("size_of_matrix").value;
             var table = "<h> Result: <br/><br/> </h><table style='width:20%; margin-left:auto; margin-right: auto'>";
             // <tr><td style='border: 2px solid #dddddd;'>a</td><td style='border: 2px solid #dddddd;'> B </td><td style='border: 2px solid #dddddd; margin-left: 20px'> y </td></table>";
-            for(var i = 0; i<size; i++){
+            for(var i = 0; i<size; i++){ // สร้างตาราง ไว้ใส่เมทริกซ์ที่คำนวณเสร็จแล้ว
                 table += "<tr>";
                 for(var j = 0; j<size; j++){
                     
@@ -106,12 +105,12 @@ class Gauss_Jordan extends Component{
         }
         var area_for_b = "";
         echelonform();
-        for(var i = 0; i<size; i++){
+        for(var i = 0; i<size; i++){ // สร้างพื้นที่ที่ไว้แสดงผลคำตอบ
             area_for_b += "<div style='margin-bottom: 10px;'><br/>"+"x"+(i+1)+" = <h id='ans_b"+i+0+"'> </h></div>";
         }
         document.getElementById("area_b").innerHTML=area_for_b;
 
-        for(var i = 0; i<size; i++){
+        for(var i = 0; i<size; i++){ // ใส่คำตอบในที่ที่สร้างไว้
             document.getElementById("ans_b"+i+0).innerHTML=solution[i];
         }
 
@@ -147,7 +146,7 @@ class Gauss_Jordan extends Component{
                         <br/><br/>
 
                         <div id="matrix_solution">
-
+                            
                         </div>
                         <br/><br/>
 
