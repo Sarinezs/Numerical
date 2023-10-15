@@ -39,7 +39,7 @@ class Newton extends Component{
                 arr_c[0] = y[0];
                 arr_c[1] = (y[4] - y[0]) / (x[4] - x[0]);
             };
-            Linear_cal(s,e);
+            Linear_cal();
             Linear_ans = arr_c[0] + arr_c[1]*(42235 - x[0]);
             document.getElementById("Linear").innerHTML=Linear_ans;
 
@@ -49,7 +49,7 @@ class Newton extends Component{
                 arr_c1[1] = (y[2] - y[0]) / (x[2] - x[0]);
                 arr_c1[2] = ((y[2] - y[0]) / (x[2] - x[0]) - arr_c[1]) / (x[4] - x[0]);
             };
-            Quadratic_cal(s,e);
+            Quadratic_cal();
             Quadratic_ans = arr_c1[0] + arr_c1[1]*(42235 - x[0]) + arr_c1[2]*(42235 - x[0])*(42235 - x[2]);
             document.getElementById("Quadratic").innerHTML=Quadratic_ans;
 

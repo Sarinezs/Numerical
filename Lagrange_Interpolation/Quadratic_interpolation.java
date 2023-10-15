@@ -1,5 +1,3 @@
-package Lagrange_Interpolation;
-// package work9;
 
 public class Quadratic_interpolation {
     static double[] x = {0,20000,40000,60000,80000};

@@ -9,6 +9,7 @@ export const NavBar = () =>{
             <Navbar key={expand} bg="dark"variant="dark" expand={expand} className="mb-3">
               <Container fluid>
                 <Navbar.Brand >Numer Project</Navbar.Brand>
+                <NavDropdown.Divider />
                 
 
                 {/* <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />   */}
@@ -20,9 +21,18 @@ export const NavBar = () =>{
                     <Nav className="justify-content-end flex-grow-1 pe-3">
                     
                       <NavDropdown
-                        title="interpolation"
+                        title="Interpolation"
                         id={`offcanvasNavbarDropdown-expand-${expand}`}>
-                        <NavDropdown.Item href="/Newton">Newton</NavDropdown.Item><NavDropdown.Divider />
+                        <NavDropdown.Item href="/Newton">Newton</NavDropdown.Item>
+                        <br/>
+                        <NavDropdown.Item href="/Lagrange">Lagrange</NavDropdown.Item><NavDropdown.Divider />
+                      </NavDropdown>
+
+                      <NavDropdown
+                        title="Solutions Root of equation"
+                        id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                        <NavDropdown.Item href="/Gauss_elimination">Gauss_elimination</NavDropdown.Item><NavDropdown.Divider />
+                        <br/>
                       </NavDropdown>
 
                     </Nav>

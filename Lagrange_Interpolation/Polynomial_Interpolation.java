@@ -1,4 +1,3 @@
-package Lagrange_Interpolation;
 public class Polynomial_Interpolation {
     static double[] x = {0,20000,40000,60000,80000};
     static double[] y = {9.8100,9.7487,9.6879,9.6879,9.5682};

@@ -1,5 +1,3 @@
-package Lagrange_Interpolation;
-// package work9;
 
 public class Linear_Interpolation {
     static double[] x = {0,20000,40000,60000,80000};
