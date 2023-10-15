@@ -67,7 +67,8 @@ class Gauss_elimination extends Component{
         }
 
         var printform = () =>{
-            var table = "<table style='width:20%; margin-left:auto; margin-right: auto'>";
+            var size = document.getElementById("size_of_matrix").value;
+            var table = "<h> Result: <br/><br/> </h><table style='width:20%; margin-left:auto; margin-right: auto'>";
             // <tr><td style='border: 2px solid #dddddd;'>a</td><td style='border: 2px solid #dddddd;'> B </td><td style='border: 2px solid #dddddd; margin-left: 20px'> y </td></table>";
             for(var i = 0; i<size; i++){
                 table += "<tr>";
@@ -78,7 +79,7 @@ class Gauss_elimination extends Component{
                 table += "<td id='b"+i+"0' style='border: 2px solid #dddddd;margin-left: 20px'></td></tr>"
             }
             table += "</table>";
-            document.getElementById("matrix_b2").innerHTML=table;
+            document.getElementById("matrix_solution").innerHTML=table;
 
             for(var i = 0; i<size; i++){
                 for(var j = 0; j<size; j++){
@@ -88,9 +89,17 @@ class Gauss_elimination extends Component{
             }
 
         }
-
+        var area_for_b = "";
         echelonform();
-        
+        for(var i = 0; i<size; i++){
+            area_for_b += "<div style='margin-bottom: 10px;'><br/>"+"x"+(i+1)+" = <h id='ans_b"+i+0+"'> </h></div>";
+        }
+        document.getElementById("area_b").innerHTML=area_for_b;
+
+        for(var i = 0; i<size; i++){
+            document.getElementById("ans_b"+i+0).innerHTML=solution[i];
+        }
+
     }
 
 
@@ -122,34 +131,17 @@ class Gauss_elimination extends Component{
                     
                         <br/><br/>
 
-                        <div id="matrix_a">
+                        <div id="matrix_solution">
 
                         </div>
                         <br/><br/>
 
-                        <div id="matrix_b"></div>
-                        <br/>
-                        <div id="matrix_b1"></div>
-                        <br/>
-                        <div id="matrix_b2">
-                            {/* <table style={{width: "20%", marginLeft: "auto", marginRight: "auto" } }>
-                                <tr>
-                                    <td style={{border: "2px solid #dddddd"}}>x1</td>
-                                    <td style={{border: "2px solid #dddddd"}}>x2</td>
-                                    <td style={{border: "2px solid #dddddd"}}>x3</td>
-                                    <td style={{border: "2px solid #dddddd"}}>y</td>
-                                </tr>
-                                <tr>
-                                    <td style={{border: "2px solid #dddddd"}}>3</td>
-                                    <td style={{border: "2px solid #dddddd"}}>2</td>
-                                    <td style={{border: "2px solid #dddddd"}}>0</td>
-                                    <td style={{border: "2px solid #dddddd"}}>9</td>
-                                </tr>
-                            </table> */}
+                        <div id="area_b" style={{marginBottom: "10%"}}>
                         </div>
-                        <br/>
 
+                       
 
+                        
                     </div>
                 </div>
             </div>
