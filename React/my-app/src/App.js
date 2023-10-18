@@ -8,6 +8,9 @@ import Lagrange from './Interpolation/Lagrange';
 import Gauss_elimination from './Solutions Root of equation/Gauss_elimination';
 import Gauss_Jordan from './Solutions Root of equation/Gauss_Jordan';
 
+import Bisection from './Root_Of_Equation/Bisection';
+import FalsePosition from './Root_Of_Equation/FalsePosition';
+
 function App() {
   return (
     <div className="App">
@@ -20,6 +23,10 @@ function App() {
 
         <Route path='/Gauss_elimination' element={<Gauss_elimination/>}/>
         <Route path='/Gauss_Jordan' element={<Gauss_Jordan/>}/>
+
+        <Route path='/Bisection' element={<Bisection/>}/>
+        <Route path='/FalsePosition' element={<FalsePosition/>}/>
+
         
         
       </Routes>

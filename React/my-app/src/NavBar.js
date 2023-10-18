@@ -20,6 +20,15 @@ export const NavBar = () =>{
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
                     
+                    <NavDropdown
+                        title="Root Of Equation"
+                        id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                        <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item>
+                        <br/>
+                        <NavDropdown.Item href="/FalsePosition">FalsePosition</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                      </NavDropdown>
+
                       <NavDropdown
                         title="Interpolation"
                         id={`offcanvasNavbarDropdown-expand-${expand}`}>
