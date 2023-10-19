@@ -30,7 +30,8 @@ export const NavBar = () =>{
                           title="Root Of Equation"
                           id={`offcanvasNavbarDropdown-expand-${expand}`}>
                           <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item><NavDropdown.Divider />
-                          <NavDropdown.Item href="/FalsePosition">FalsePosition</NavDropdown.Item>
+                          <NavDropdown.Item href="/FalsePosition">FalsePosition</NavDropdown.Item><NavDropdown.Divider />
+                          <NavDropdown.Item href="/Onepoint">Onepoint</NavDropdown.Item>
 
                         </NavDropdown>
 

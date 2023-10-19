@@ -10,6 +10,7 @@ import Gauss_Jordan from './Solutions Root of equation/Gauss_Jordan';
 
 import Bisection from './Root_Of_Equation/Bisection';
 import FalsePosition from './Root_Of_Equation/FalsePosition';
+import Onepoint from './Root_Of_Equation/Onepoint';
 
 function App() {
   return (
@@ -24,8 +25,11 @@ function App() {
         <Route path='/Gauss_elimination' element={<Gauss_elimination/>}/>
         <Route path='/Gauss_Jordan' element={<Gauss_Jordan/>}/>
 
+        
+        <Route path='/Onepoint' element={<Onepoint/>}/>
         <Route path='/Bisection' element={<Bisection/>}/>
         <Route path='/FalsePosition' element={<FalsePosition/>}/>
+
 
         
         
