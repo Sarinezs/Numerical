@@ -13,22 +13,10 @@ const Div = {
     margin:"0 auto"
 }
 
-class Newton_Raphson extends Component{
+class Secant extends Component{
 
-    Cal_Newton_Raphson(){
-        var equation = document.getElementById("Equation").value;
-        var x0 = parseFloat(document.getElementById("input_x0").value);
-        var x1, xold, scope;
-        var e = 0.00001;
-        do{
-            xold = x0;
-            scope = { x:x0 };
-            x1 = x0 + evaluate(equation, scope); // newraph เพิ่ม x0
-            x0 = x1;
-
-        }while((Math.abs((x1-xold) / x1) * 100) >= e);
+    Cal_Secant(){
         
-        document.getElementById("ans").innerHTML=x1;
     }
 
     render(){
@@ -36,7 +24,7 @@ class Newton_Raphson extends Component{
             <div>
                 <div style={mainDiv}>
                     <div style={Div}>
-                        <h1>Newton Raphson</h1>
+                        <h1>Secant</h1>
                         <br/><br/>
 
                         <div>
@@ -46,7 +34,7 @@ class Newton_Raphson extends Component{
                         </div>
                         <br/>
 
-                        <Button onClick={this.Cal_Newton_Raphson} style={{width:"10", margin:"0 auto"}}> Calculate </Button>
+                        <Button onClick={this.Cal_Secant} style={{width:"10", margin:"0 auto"}}> Calculate </Button>
                         <br/><br/>
                         <h id="ans"></h>
                     </div>
@@ -56,4 +44,4 @@ class Newton_Raphson extends Component{
     }
 }
 
-export default Newton_Raphson;
+export default Secant;
