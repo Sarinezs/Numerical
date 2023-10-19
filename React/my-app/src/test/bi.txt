@@ -1,81 +1,82 @@
-import {React,Component} from "react";
-import { Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
+import React from "react";
+import { Navbar,Container,NavDropdown,Nav,Offcanvas,Form,Button} from "react-bootstrap";
+import {Link} from 'react-router-dom';
 
-const mainDiv = {
-    display:"flex",
-    width:"100%",
-    margin:"0 auto"
+export const NavBar = () =>{
+    return (
+        <>
+          {[false].map((expand) => (
+            <Navbar key={expand} bg="dark"variant="dark" expand={expand} className="mb-3">
+              {/* <Navbar.Brand >Numer Project</Navbar.Brand> */}
+                  {/* <NavDropdown.Divider /> */}
+              <Container fluid>
+              <Navbar.Brand href="#">Numer Project</Navbar.Brand>
+              <Nav className="home">
+                <Nav.Link href="#">home</Nav.Link>
+              </Nav>
+
+              <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />  
+
+              <Navbar.Offcanvas
+                id={`offcanvasNavbar-expand-${expand}`}
+                aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                placement="end"></Navbar.Offcanvas> 
+
+            <Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`}
+            aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="end">
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                  ประเภท
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+                
+                
+                  
+                  
+
+                  <Offcanvas.Body>
+                    <Nav className="justify-content-end flex-grow-1 pe-3" fixed="bottom">
+                    
+                    <NavDropdown title="Menu" id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                       
+                      <NavDropdown
+                          title="Root Of Equation"
+                          id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                          <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item>
+                          <br/>
+                          <NavDropdown.Item href="/FalsePosition">FalsePosition</NavDropdown.Item>
+                          <NavDropdown.Divider />
+
+                        </NavDropdown>
+
+                        <NavDropdown
+                          title="Interpolation"
+                          id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                          <NavDropdown.Item href="/Newton">Newton</NavDropdown.Item>
+                          <br/>
+                          <NavDropdown.Item href="/Lagrange">Lagrange</NavDropdown.Item><NavDropdown.Divider />
+                        </NavDropdown>
+
+                        <NavDropdown
+                          title="Solutions Root of equation"
+                          id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                          <NavDropdown.Item href="/Gauss_elimination">Gauss_elimination</NavDropdown.Item>
+                          <br/>
+                          <NavDropdown.Item href="/Gauss_Jordan">Gauss_Jordan</NavDropdown.Item><NavDropdown.Divider />
+                          <br/>
+                        </NavDropdown>
+
+                    </NavDropdown>
+
+                    
+
+                    </Nav>
+                    
+                  </Offcanvas.Body>
+                </Navbar.Offcanvas>
+              </Container>
+            </Navbar>
+          ))}
+        </>
+      );
 }
-
-const Div = {
-    width:"100%",
-    margin:"0 auto"
-}
-
-class Newton_Interpolation extends Component{
-    constructor(start, end){
-        super();
-        this.x = [0,20000,40000,60000,80000] ;
-        this.y = [9.8100,9.7487,9.6879,9.6879,9.5682] ;
-        this.arr_c = [];
-        this.save_c(start, end);
-        this.xvalue = 42235;
-        this.solution = 0;
-        this.term = 1;
-        this.Cal_interpolate();
-    }
-
-    interpolate(start, end){
-        if((end - start) == 1){
-            return (this.y[end] - this.y[start]) / (this.x[end] - this.x[start]);
-        }
-        else if(end == start){
-            return this.y[end];
-        }
-        else{
-            return (this.interpolate(start+1, end) - this.interpolate(start, end-1)) / (this.x[end] - this.x[start]);
-        }
-    }
-
-    save_c(start, end){
-        for(let i = start; i<=end; i++){
-            this.arr_c[i] = this.interpolate(start, i);
-        }
-    }
-
-    Cal_interpolate(){
-        for(let i = 0; i<this.arr_c.length; i++){
-            if(i == 0){
-                this.solution += this.arr_c[i];
-            }
-            else{
-                this.term *= (this.xvalue - this.x[i-1]);
-                this.solution += this.arr_c[i]*this.term;
-            }
-        }
-    }
-
-    render(){
-        return(
-            <div>
-                suriya meru
-               <div style={mainDiv}>
-                   <div  style={Div} >
-                        <h1> Newton Interpolation </h1>
-                        <br></br> 
-                        <div>
-                                
-                            
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            
-        );
-    }
-
-}
-
-export default Newton_Interpolation;
