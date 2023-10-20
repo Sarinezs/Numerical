@@ -33,7 +33,8 @@ export const NavBar = () =>{
                           <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item><NavDropdown.Divider />
                           <NavDropdown.Item href="/FalsePosition">FalsePosition</NavDropdown.Item><NavDropdown.Divider />
                           <NavDropdown.Item href="/Onepoint">Onepoint</NavDropdown.Item><NavDropdown.Divider />
-                          <NavDropdown.Item href="/Newton_Raphson">Newton Raphson</NavDropdown.Item>
+                          <NavDropdown.Item href="/Newton_Raphson">Newton Raphson</NavDropdown.Item><NavDropdown.Divider />
+                          <NavDropdown.Item href="/Secant">Secant</NavDropdown.Item>
 
                         </NavDropdown>
 
@@ -48,7 +49,6 @@ export const NavBar = () =>{
                           title="Solutions Root of equation"
                           id={`offcanvasNavbarDropdown-expand-${expand}`}>
                           <NavDropdown.Item href="/Gauss_elimination">Gauss_elimination</NavDropdown.Item> <NavDropdown.Divider />
-                          <NavDropdown.Item href="/Gauss">Gauss</NavDropdown.Item> <NavDropdown.Divider />
                           <NavDropdown.Item href="/Gauss_Jordan">Gauss_Jordan</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>

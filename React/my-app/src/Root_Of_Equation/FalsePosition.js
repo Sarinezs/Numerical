@@ -16,15 +16,13 @@ const Div = {
 class FalsePosition extends Component{
 
     Cal_Falseposition(){
-        var XR = document.getElementById("input_xr").value
-        var XL = document.getElementById("input_xl").value;
+        var XR = Number(document.getElementById("input_xr").value);
+        var XL = Number(document.getElementById("input_xl").value);
         var equation = document.getElementById("Equation").value;
         var xr = parseFloat(XR);
         var xl = parseFloat(XL);
         var scope;
         var xm, yl, yr, ym;
-        var itermax = 50;
-        var iter = 0;
     
         do{
             scope = { x:xr };
@@ -34,7 +32,6 @@ class FalsePosition extends Component{
             xm = (xl*yr + xr*yl) / (yr - yl);
             scope = { x:xm };
             ym = evaluate(equation, scope);
-            iter++;
 
             if(ym * yr < 0){
                 xl = xm;
@@ -53,7 +50,7 @@ class FalsePosition extends Component{
             <div>
                 <div style={mainDiv}>
                     <div style={Div}>
-                        <h1>Bisection</h1>
+                        <h1>FalsePosition</h1>
                         <br/><br/>
 
                         <div>

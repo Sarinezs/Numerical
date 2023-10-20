@@ -16,8 +16,8 @@ const Div = {
 class Bisection extends Component{
 
     Cal_Bisection(){
-        var XR = document.getElementById("input_xr").value
-        var XL = document.getElementById("input_xl").value;
+        var XR = Number(document.getElementById("input_xr").value);
+        var XL = Number(document.getElementById("input_xl").value);
         var equation = document.getElementById("Equation").value;
         var xr = parseFloat(XR);
         var xl = parseFloat(XL);

@@ -1,9 +1,9 @@
-package work0;
+// package work0;
 // bisection method
 public class no2{
     public static void main(String[] args){
-        double xl = 1.5;
-        double xr = 2.0;
+        double xl = 0;
+        double xr = 100;
         double xm;
         double yl;
         double yr;

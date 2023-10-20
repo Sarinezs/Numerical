@@ -97,7 +97,6 @@ class Newton extends Component{
                    <div  style={Div} >
                         <h1> Newton Interpolation </h1>
                         <br></br>
-                            <Lagrange></Lagrange>
                             <div>
                                 <Form.Control id="Inputstart" type="number" placeholder="input start" style={{width:"20%",margin:"0 auto"}}></Form.Control>
                                 <br></br>

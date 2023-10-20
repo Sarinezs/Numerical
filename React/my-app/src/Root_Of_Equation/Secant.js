@@ -16,7 +16,23 @@ const Div = {
 class Secant extends Component{
 
     Cal_Secant(){
-        
+        var x0 = Number(document.getElementById("input_x0").value);
+        var equation = document.getElementById("Equation").value;
+        var x1 = 0;
+        var xcheck, x2, scope;
+        var e = 0.000001;
+        do{
+            xcheck = x1;
+            scope = { x:x0 };
+            var y0 = evaluate(equation, scope);
+            scope = { x:x1 };
+            var y1 = evaluate(equation, scope);
+            x2 = x0 - (y0*(x0 - x1)) / (y0 - y1);
+            x0 = x1;
+            x1 = x2;
+        }while(Math.abs((x2 - xcheck)/x2)*100 >= e);
+
+        document.getElementById("ans").innerHTML=x2;
     }
 
     render(){
