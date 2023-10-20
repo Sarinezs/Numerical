@@ -29,7 +29,7 @@ class FalsePosition extends Component{
             yr = evaluate(equation, scope);
             scope = { x:xl };
             yl = evaluate(equation, scope);
-            xm = (xl*yr + xr*yl) / (yr - yl);
+            xm = (xl*yr - xr*yl) / (yr - yl);
             scope = { x:xm };
             ym = evaluate(equation, scope);
 

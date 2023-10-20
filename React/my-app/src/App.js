@@ -35,9 +35,6 @@ function App() {
         <Route path='/Onepoint' element={<Onepoint/>}/>
         <Route path='/Newton_Raphson' element={<Newton_Raphson/>}/>
         <Route path='/Secant' element={<Secant/>}/>
-
-
-        
         
       </Routes>
       </BrowserRouter>
