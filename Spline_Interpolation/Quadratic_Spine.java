@@ -21,30 +21,30 @@ public class Quadratic_Spine {
         double[] x = solve(a,b);
         // printechelon(a,b);
 
-        // for(int j = 0; j<4; j++){
-        //     if(j == 0){
-        //         for(int i = 0; i<3; i++){
-        //             System.out.print(String.format("%.2f", x[i])+" ");
-        //         }
-        //     }
-        //     else if(j == 1){
-        //         for(int i = 3; i<6; i++){
-        //             System.out.print(String.format("%.2f", x[i])+" ");
-        //         }
-        //     }
-        //     else if(j == 2){
-        //         for(int i = 6; i<9; i++){
-        //             System.out.print(String.format("%.2f", x[i])+" ");
-        //         }
-        //     }
-        //     else if(j == 3){
-        //         for(int i = 9; i<12; i++){
-        //             System.out.print(String.format("%.2f", x[i])+" ");
-        //         }
-        //     }
+        for(int j = 0; j<4; j++){
+            if(j == 0){
+                for(int i = 0; i<3; i++){
+                    System.out.print(String.format("%.2f", x[i])+" ");
+                }
+            }
+            else if(j == 1){
+                for(int i = 3; i<6; i++){
+                    System.out.print(String.format("%.2f", x[i])+" ");
+                }
+            }
+            else if(j == 2){
+                for(int i = 6; i<9; i++){
+                    System.out.print(String.format("%.2f", x[i])+" ");
+                }
+            }
+            else if(j == 3){
+                for(int i = 9; i<12; i++){
+                    System.out.print(String.format("%.2f", x[i])+" ");
+                }
+            }
             
-            // System.out.println("");
-        // }
+            System.out.println("");
+        }
         double x_value = 4.5;
         double[] ex = {2,4,6,8,10};
         double[] fx = {9.5,8,10.5,39.5,72.5};
@@ -62,7 +62,7 @@ public class Quadratic_Spine {
             solution = (x[9]*(Math.pow(x_value, 2)) + x[10]*x_value + x[11]); 
         }
 
-        System.out.print(String.format("%.6f", solution)+" ");
+        // System.out.print(String.format("%.6f", solution)+" ");
         
     }
 
