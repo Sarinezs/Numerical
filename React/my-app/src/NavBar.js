@@ -51,6 +51,12 @@ export const NavBar = () =>{
                           <NavDropdown.Item href="/Gauss_elimination">Gauss_elimination</NavDropdown.Item> <NavDropdown.Divider />
                           <NavDropdown.Item href="/Gauss_Jordan">Gauss_Jordan</NavDropdown.Item>
                         </NavDropdown>
+
+                        <NavDropdown
+                          title="Integration and Diffentiation"
+                          id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                          <NavDropdown.Item href="/Composite_Trapezoidal">Composite_Trapezoidal</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                     
                   </Offcanvas.Body>

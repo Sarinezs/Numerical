@@ -15,6 +15,8 @@ import Onepoint from './Root_Of_Equation/Onepoint';
 import Newton_Raphson from './Root_Of_Equation/Newton_Raphson';
 import Secant from './Root_Of_Equation/Secant';
 
+import Composite_Trapezoidal from './integration_diferentiation/Composite_Trapezoidal';
+
 function App() {
   return (
     <div className="App">
@@ -35,6 +37,9 @@ function App() {
         <Route path='/Onepoint' element={<Onepoint/>}/>
         <Route path='/Newton_Raphson' element={<Newton_Raphson/>}/>
         <Route path='/Secant' element={<Secant/>}/>
+
+        <Route path='/Composite_Trapezoidal' element={<Composite_Trapezoidal/>}/>
+
         
       </Routes>
       </BrowserRouter>

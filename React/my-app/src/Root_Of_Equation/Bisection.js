@@ -56,7 +56,7 @@ class Bisection extends Component{
                         <br/><br/>
 
                         <div>
-                            <Form.Control id="Equation" type="text" placeholder="input Equation" style={{width:"10%", margin:"0 auto"}}></Form.Control>
+                                
                             <br/>
                             <Form.Control id="input_xl" type="number" placeholder="input XL" style={{width:"10%", margin:"0 auto"}}></Form.Control>
                             <Form.Control id="input_xr" type="number" placeholder="input XR" style={{width:"10%", margin:"0 auto"}}></Form.Control>
