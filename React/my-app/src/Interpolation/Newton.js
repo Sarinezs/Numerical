@@ -17,6 +17,9 @@ const Div = {
 
 class Newton extends Component{
 
+
+    
+
     Cal_interpolate(){
         var x =[0,20000,40000,60000,80000];
         var y = [9.8100,9.7487,9.6879,9.6879,9.5682] ;

@@ -15,6 +15,9 @@ const Div = {
 
 class FalsePosition extends Component{
 
+
+    
+
     Cal_Falseposition(){
         var XR = Number(document.getElementById("input_xr").value);
         var XL = Number(document.getElementById("input_xl").value);

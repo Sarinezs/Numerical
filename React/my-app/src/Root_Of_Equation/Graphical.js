@@ -14,6 +14,7 @@ const Div = {
 }
 
 class Graphical extends Component{
+    
 
     Cal_Graphical(){
         var x = Number(document.getElementById("input_start").value);

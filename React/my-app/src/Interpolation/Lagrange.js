@@ -14,6 +14,9 @@ const Div = {
 }
 
 class Lagrange extends Component{
+
+
+    
     constructor(){
         super();
         let i = 0;

@@ -15,6 +15,8 @@ const Div = {
 
 class Secant extends Component{
 
+    
+
     Cal_Secant(){
         var x0 = Number(document.getElementById("input_x0").value);
         var equation = document.getElementById("Equation").value;

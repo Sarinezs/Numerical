@@ -14,6 +14,7 @@ const Div = {
 }
 
 class Onepoint extends Component{
+    
 
     Cal_Onepoint(){
         var equation = document.getElementById("Equation").value;

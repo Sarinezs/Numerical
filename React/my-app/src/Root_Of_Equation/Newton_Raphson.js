@@ -14,6 +14,7 @@ const Div = {
 }
 
 class Newton_Raphson extends Component{
+    
 
     Cal_Newton_Raphson(){
         var equation = document.getElementById("Equation").value;

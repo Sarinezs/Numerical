@@ -15,6 +15,9 @@ const Div = {
 
 class Bisection extends Component{
 
+
+    
+
     Cal_Bisection(){
         var XR = Number(document.getElementById("input_xr").value);
         var XL = Number(document.getElementById("input_xl").value);

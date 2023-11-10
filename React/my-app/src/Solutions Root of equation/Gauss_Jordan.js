@@ -13,6 +13,7 @@ const Div = {
 }
 
 class Gauss_Jordan extends Component{
+    
 
     create_matrix_input(){ // สร้างตาราง matrix
         var size = document.getElementById("size_of_matrix").value;
