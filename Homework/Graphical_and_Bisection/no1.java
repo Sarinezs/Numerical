@@ -1,4 +1,3 @@
-package work0;
 // Graphical method
 public class no1 {
     public static void main(String[] args){

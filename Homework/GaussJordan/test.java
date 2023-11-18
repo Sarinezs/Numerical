@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import work0.test;
-
 public class test{
 
     public void echelonform(double[][] a, double[] b){

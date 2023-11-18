@@ -1,4 +1,3 @@
-package work0;
 import java.util.Scanner;
 // bisection method
 public class no5{
